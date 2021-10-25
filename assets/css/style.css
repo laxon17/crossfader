@@ -23,10 +23,6 @@ html::-webkit-scrollbar-track {
   background: none;
 }
 
-html body {
-  height: 1000vh;
-}
-
 html body header #text-logo {
   position: relative !important;
   background: #fff;

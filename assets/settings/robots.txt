@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+
+sitemap: https://laxon17.github.io/crossfader/assets/settings/sitemap.xml

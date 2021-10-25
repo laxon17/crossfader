@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Crossfader</title>
+        <link>https://laxon17.github.io/crossfader/index.html</link>
+        <description>News</description>
+            <item>
+                <title>How to get hired on Ibiza!</title>
+                <link>https://laxon17.github.io/crossfader/</link>
+                <description>Hurry up! There's a discount on our Exit app, check It out!</description>
+            </item>
+            <item>
+                <title>Carl Cox on our podcast!</title>
+                <link>https://laxon17.github.io/crossfader/</link>
+                <description>We updated Aria! Check it out!</description>
+            </item>
+            <item>
+                <title>These 5 DJ skills you didn't know!</title>
+                <link>https://laxon17.github.io/crossfader/</link>
+                <description>We published a new app! Fastest buyers get a discount.</description>
+            </item>
+    </channel>
+</rss>
