@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"  media="screen,projection"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script src="assets/js/script.js" defer></script>
+        <script src="assets/js/triggers.js" defer></script>
+        </head>
+
+        <body>
+
+            <!-- Header with navigation menu -->
+            <header class="navbar-fixed">
+                <nav class="row white">
+                        <a href="#" data-target="mobile-nav" class="sidenav-trigger">
+                            <i class="material-icons black-text">menu</i>
+                        </a>
+                        <div class="col xl2 offset-l1 offset-m3 offset-s1 left">
+                            <a href="index.html" id="text-logo" class="brand-logo black-text">Crossfader</a>
+                        </div>
+                        <div class="col xl4 offset-xl3 offset-l2">
+                            <ul class="center hide-on-med-and-down">
+                                <li><a class="black-text" href="index1.html">Products</a></li>
+                                <li><a class="black-text" href="index2.html">Community</a></li>
+                                <li><a class="black-text" href="index3.html">Support</a></li>
+                                <li><a class="black-text" href="index3.html">Author</a></li>
+                            </ul>
+                        </div>
+                        <div class="col xl2 right">
+                            <ul class="hide-on-med-and-down">
+                                <li class="list-item-icon">
+                                    <a href="index1.html">
+                                        <i class="large black-text material-icons">person</i>
+                                    </a>
+                                </li>
+                                <li class="list-item-icon">
+                                    <a href="index1.html">
+                                        <i class="black-text material-icons tiny">shopping_cart</i>
+                                    </a>
+                                </li>
+                                <li class="list-item-icon">
+                                    <a href="index1.html">
+                                        <i class="black-text material-icons tiny">search</i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <ul class="sidenav" id="mobile-nav">
+                    <li>
+                        <a class="black-text" href="index1.html">Products</a>
+                    </li>
+                    <li>
+                        <a class="black-text" href="index2.html">Community</a>
+                    </li>
+                    <li>
+                        <a class="black-text" href="index3.html">Support</a>
+                    </li>
+                    <li>
+                        <a class="black-text" href="index3.html">Author</a>
+                    </li>
+                    <li class="list-item-icon">
+                        <a href="index1.html">
+                            <i class="black-text material-icons tiny">person</i>
+                        </a>
+                    </li>
+                    <li class="list-item-icon">
+                        <a href="index1.html">
+                            <i class="black-text material-icons tiny">shopping_cart</i>
+                        </a>
+                    </li>
+                    <li class="list-item-icon">
+                        <a href="index1.html">
+                            <i class="black-text material-icons tiny">search</i>
+                        </a>
+                    </li>
+                </ul>
+            </header>
+
+            
+
+            <main>
+                
+            </main>
+
+            <!-- JQuery -->
+            <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+            <!--JavaScript at end of body for optimized loading-->
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            <script>
+                $(document).ready(() => $('.sidenav').sidenav())
+            </script>
+        </body>
+    </html>
