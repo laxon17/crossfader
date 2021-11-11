@@ -1,12 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600&display=swap');
+@import "./variables";
 
 * {
     box-sizing: border-box;
+    a {
+        text-transform: uppercase;
+    }
 }
 
 html {
     &::-webkit-scrollbar {
-        width: 12px;
+        width: 8px;
     }
     &::-webkit-scrollbar-thumb {
         background-color: rgba(0, 0, 0, 0.568);
@@ -16,34 +20,72 @@ html {
         background: none;
     }
     scroll-behavior: smooth;
-    text-transform: uppercase !important;
     font-family: 'Oswald', sans-serif !important;
     body {
         header {
-            #text-logo {
-                position: relative !important;
-                background: #fff;
-                border: 0;
-                cursor: pointer;
-                transition: 200ms ease-in;
-                &:hover {
-                    margin-left: 1rem;
+            nav {
+                #logo-container {
+                    padding-top: 1rem;
+                    height: 50px;
+                    width: 100px;
+                    cursor: pointer;
+                    display: flex;
+                    @include flexProperty(row, center, center);
+                    span.crossfader-rail {
+                        width: 100%;
+                        height: 5px;
+                        background-color: #000;
+                    }
+                    span.crossfader-slider {
+                        position: absolute;
+                        left: 20px;
+                        width: 5px;
+                        height: 40px;
+                        box-shadow: 0 0 0 5px #000;
+                        background-color: #ccc; 
+                        transition: 500ms ease;
+                    }
+                    &:hover span.crossfader-slider {
+                        transform: translateX(60px);
+                    }
+                }
+                #visible-links {
+                    li {
+                        a {
+                            transition: 300ms ease;
+                            border-bottom: 5px solid rgba(0, 128, 128, 0);
+                        }
+                        &:hover a {
+                            border-bottom: 5px solid rgb(0, 128, 128);
+                            background: none;
+                        }
+                    }
                 }
             }
-            li {
-                border-bottom: 3px solid transparent;
-                display: block;
-                &:hover {
-                    border-bottom-color: rgb(13, 72, 139);
-                    transition: 500ms;
+        }
+        main {
+            width: 100%;
+            margin: 0 auto;
+            .slider {
+                width: 100% !important;
+                height: 80vh !important;
+                .slides {
+                    height: 80vh !important;
+                    .caption {
+                        margin-top: 6rem !important;
+                    }
                 }
-                &:hover a {
-                    background: transparent;
-                }
-                &.list-item-icon {
-                    border-bottom: none;
-                }
+            }
+            .cross-section {
+                width: 100%;
+                height: 25vh;
+                clip-path: polygon(0 0, 100% 0, 100% 15% , 0 100%);
+                background: #eeeeee;
+            }
+            .opposite {
+                clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 100% 15%);
             }
         }
     }
 }
+

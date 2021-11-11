@@ -4,14 +4,17 @@
           box-sizing: border-box;
 }
 
+* a {
+  text-transform: uppercase;
+}
+
 html {
   scroll-behavior: smooth;
-  text-transform: uppercase !important;
   font-family: 'Oswald', sans-serif !important;
 }
 
 html::-webkit-scrollbar {
-  width: 12px;
+  width: 8px;
 }
 
 html::-webkit-scrollbar-thumb {
@@ -23,35 +26,88 @@ html::-webkit-scrollbar-track {
   background: none;
 }
 
-html body header #text-logo {
-  position: relative !important;
-  background: #fff;
-  border: 0;
+html body header nav #logo-container {
+  padding-top: 1rem;
+  height: 50px;
+  width: 100px;
   cursor: pointer;
-  -webkit-transition: 200ms ease-in;
-  transition: 200ms ease-in;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-html body header #text-logo:hover {
-  margin-left: 1rem;
+html body header nav #logo-container span.crossfader-rail {
+  width: 100%;
+  height: 5px;
+  background-color: #000;
 }
 
-html body header li {
-  border-bottom: 3px solid transparent;
-  display: block;
+html body header nav #logo-container span.crossfader-slider {
+  position: absolute;
+  left: 20px;
+  width: 5px;
+  height: 40px;
+  -webkit-box-shadow: 0 0 0 5px #000;
+          box-shadow: 0 0 0 5px #000;
+  background-color: #ccc;
+  -webkit-transition: 500ms ease;
+  transition: 500ms ease;
 }
 
-html body header li:hover {
-  border-bottom-color: #0d488b;
-  -webkit-transition: 500ms;
-  transition: 500ms;
+html body header nav #logo-container:hover span.crossfader-slider {
+  -webkit-transform: translateX(60px);
+          transform: translateX(60px);
 }
 
-html body header li:hover a {
-  background: transparent;
+html body header nav #visible-links li a {
+  -webkit-transition: 300ms ease;
+  transition: 300ms ease;
+  border-bottom: 5px solid rgba(0, 128, 128, 0);
 }
 
-html body header li.list-item-icon {
-  border-bottom: none;
+html body header nav #visible-links li:hover a {
+  border-bottom: 5px solid teal;
+  background: none;
+}
+
+html body main {
+  width: 100%;
+  margin: 0 auto;
+}
+
+html body main .slider {
+  width: 100% !important;
+  height: 80vh !important;
+}
+
+html body main .slider .slides {
+  height: 80vh !important;
+}
+
+html body main .slider .slides .caption {
+  margin-top: 6rem !important;
+}
+
+html body main .cross-section {
+  width: 100%;
+  height: 25vh;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 15%, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 15%, 0 100%);
+  background: #eeeeee;
+}
+
+html body main .opposite {
+  -webkit-clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 100% 15%);
+          clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 100% 15%);
 }
 /*# sourceMappingURL=style.css.map */

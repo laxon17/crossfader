@@ -6,6 +6,8 @@
                 <!--Import materialize.css-->
             <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"  media="screen,projection"/>
             <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+            <link rel="stylesheet" type="text/css" href="assets/css/responsive.css" />
+            <link rel="icon" href="assets/img/logo.ico" />
             <meta name="author" content="Lazar Lalović, 62/20" />
             <meta name="description" content="Welcome to Crossfader! We are a leading DJ store and the best DJ course!" />
             <meta name="keywords" content="DJ, Crossfader, Volume, Courses, Equipment, Software, Native Instruments, Pioneer, Denon, Numark, AKG, Music" />
@@ -15,105 +17,62 @@
         </head>
 
         <body>
+            <!-- Responsive navigation menu with custom logo -->
 
-            <!-- Header with navigation menu -->
-            <header class="navbar-fixed">
-                <nav class="row white">
-                        <a href="#" data-target="mobile-nav" class="sidenav-trigger">
-                            <i class="material-icons black-text">menu</i>
-                        </a>
-                        <div class="col xl2 offset-l1 offset-m3 offset-s1 left">
-                            <a href="index.html" id="text-logo" class="brand-logo black-text">Crossfader</a>
+                <header class="navbar-fixed">
+                    <nav class="white">
+                        <div class="container">
+                            <div class="nav-wrapper">
+                                <a id="logo-container" class="brand-logo" href="index.html">
+                                    <span class="crossfader-rail"></span>
+                                    <span class="crossfader-slider"></span>
+                                </a>
+                                <a href="#" data-target="mobile-nav" class="sidenav-trigger">
+                                    <i class="material-icons black-text">menu</i>
+                                </a>
+                                <ul id="visible-links" class="right hide-on-med-and-down navLinks">  
+                                    <!-- Content injected through javaScript -->
+                                </ul>
+                            </div>
                         </div>
-                        <div class="col xl4 offset-xl3 offset-l2">
-                            <ul class="center hide-on-med-and-down">
-                                <li><a class="black-text" href="index1.html">Products</a></li>
-                                <li><a class="black-text" href="index2.html">Community</a></li>
-                                <li><a class="black-text" href="index3.html">Support</a></li>
-                                <li><a class="black-text" href="index3.html">Author</a></li>
+                    </nav>
+                </header>
+
+                <!-- Hidden navigation menu -->
+                    <ul class="sidenav sideNavCollapsed" id="mobile-nav">
+                        <!-- Content injected through javaScript -->
+                    </ul>
+                <!-- End of hidden navigation menu -->
+
+            <!-- End of responsive navigation menu -->
+
+            <!-- Main section of page -->
+                <main>
+
+                    <!-- Dynamic carousel -->
+                        <section class="slider">
+                            <ul class="slides">
+                                <!-- Content injected through javaScript -->
                             </ul>
-                        </div>
-                        <div class="col xl2 right">
-                            <ul class="hide-on-med-and-down">
-                                <li class="list-item-icon">
-                                    <a href="index1.html">
-                                        <i class="large black-text material-icons">person</i>
-                                    </a>
-                                </li>
-                                <li class="list-item-icon">
-                                    <a href="index1.html">
-                                        <i class="black-text material-icons tiny">shopping_cart</i>
-                                    </a>
-                                </li>
-                                <li class="list-item-icon">
-                                    <a href="index1.html">
-                                        <i class="black-text material-icons tiny">search</i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-                <ul class="sidenav" id="mobile-nav">
-                    <li>
-                        <a class="black-text" href="index1.html">Products</a>
-                    </li>
-                    <li>
-                        <a class="black-text" href="index2.html">Community</a>
-                    </li>
-                    <li>
-                        <a class="black-text" href="index3.html">Support</a>
-                    </li>
-                    <li>
-                        <a class="black-text" href="index3.html">Author</a>
-                    </li>
-                    <li class="list-item-icon">
-                        <a href="index1.html">
-                            <i class="black-text material-icons tiny">person</i>
-                        </a>
-                    </li>
-                    <li class="list-item-icon">
-                        <a href="index1.html">
-                            <i class="black-text material-icons tiny">shopping_cart</i>
-                        </a>
-                    </li>
-                    <li class="list-item-icon">
-                        <a href="index1.html">
-                            <i class="black-text material-icons tiny">search</i>
-                        </a>
-                    </li>
-                </ul>
-            </header>
+                        </section>
+                    <!-- End of dynamic carousel -->
+                    
+                    <div class="cross-section"></div>
+                    
+                    <!-- Product cards -->
+                        <section id="product-cards">
+                            
+                        </section>
+                    <!-- End of product cards -->
 
-            <section class="slider">
-                <ul class="slides">
-                    <li>
-                        <img src="assets/img/pioneer-ad.jpg" alt="Pioneer controllers" />
-                        <div class="caption center-align">
-                            <h3>This is our big Tagline</h3>
-                            <h5 class="light grey-text text-ligten-3">Here is our small slogan</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="assets/img/traktor-ipad.jpg" alt="Traktor software on iPad" />
-                        <div class="caption left-align">
-                            <h3>Traktor DJ 3</h3>
-                            <h5 class="teal-text text-darken-6 text-large">Available on apple store!</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="assets/img/dj-lessons.jpg" alt="DJ Lessons on DENON" />
-                        <div class="caption center-align">
-                            <h3>This is our big Tagline</h3>
-                            <h5 class="light grey-text text-ligten-3">Here is our small slogan</h5>
-                        </div>
-                    </li>
-                </ul>
-            </section>
+                    <div class="cross-section opposite"></div>
 
-            <main>
-                
-            </main>
+                </main>
+            <!-- End of main section of page -->
+
+            <footer>
+
+            </footer>
 
             <!-- JQuery -->
             <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

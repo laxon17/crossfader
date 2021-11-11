@@ -1,5 +1,4 @@
-$(document).ready(() => $('.sidenav').sidenav()) // navBar trigger
-$(document).ready(() => $('.slider').slider({
-    full_width: true,
-    height: 720,
-})) // slider trigger
+const sideNav = document.querySelector('.sidenav')
+M.Sidenav.init(sideNav, {})
+
+$(document).ready(() => $('.slider').slider())
