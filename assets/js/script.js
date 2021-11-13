@@ -71,8 +71,8 @@ const sliderHeading = [
 
 const buttonContent = [
     '',
-    'Learn more',
-    'View more',
+    'Sign up',
+    'View details',
     'View details'
 ]
 
@@ -109,7 +109,8 @@ for(let i = 0; i < imageSources.length; i++)
             sliderContainer.append(sliderItem)
     }
 
-    
+
+// Cards with products
 
 const productImageSources = [
     'traktor-dj-pro3.png',
@@ -130,33 +131,49 @@ const productAlternateNames = [
 ]
 
 const cardTitles = [
-    'Traktor DJ Software',
+    'TRAKTOR DJ Software',
     'Serato DJ software',
     'Pioneer Controllers',
-    'Traktor Controllers',
-    'New Traktor effects',
-    'Techno sound design with maschine'
+    'TRAKTOR Controllers',
+    'Traktor Pro 3 LINK',
+    'Techno producing with KOMPLETE'
+]
+
+const cardTextContent = [
+    'The new version, entitled Traktor Pro 3, was released on October 18.2018. In May 2021, a Beta release of Traktor Pro 3.5 added integration with Beatport Link. This new feature allowed DJs to make track selections from Beatport on the fly for the first time.',
+    'Professional DJ software. From the unknown to the greatest, Serato DJ Pro is the most popular DJ software globally. When you’re talking about Hip-Hop, Dance, and everything in between, you’re looking at the standard.',
+    'We offer you many options with Pioneer. Bestsellers are standalone DJ Players, models like CDJ-2000, CDJ-2000 NXS2, CDJ-3000, others are DJ Controllers, DDJ SB, DDJ SB2, DDJ-1000, XDJ-RR etc',
+    'TRAKTOR has kept dancefloors moving for almost 20 years. Our DJ controllers are designed to help you create powerful DJ mixes with TRAKTOR PRO 3 software. From DJ controllers designed for the club, to portable DJ controllers you can fit in a backpack.',
+    'Beatport and Beatsource LINK are streaming services that make their extensive catalogues available directly in TRAKTOR PRO. With LINK, you can seamlessly explore, tag and mix new music with the music you already have in your local collection.',
+    'Unique textures and otherworldly percussion with KOMPLETE. Learn how to use KOMPLETE 13 instruments and effects to generate new ideas, shape transients, and make a breakbeat techno masterpiece in our new Sketches video.'
+]
+
+const fadeEffect = [
+    'fade-right',
+    'fade-left'
 ]
 
 var productsContainer = document.querySelector('#product-cards')
 var productCards = '<section class="container">'
 var cardCounter = 0;
 
-for(let i = 0; i < productImageSources.length / 2; i++)
+for(let i = 0; i < Math.ceil(productImageSources.length / 2); i++)
     {
+        var effectCounter = 0;
         var cardRow = '<article class="row">'
-        for(let j = 0; j <productImageSources.length / 3; j++)
+        for(let j = 0; j < Math.floor(productImageSources.length / 3); j++)
         {
             cardRow += `
-                <div class="col s12 m6 l6">
+                <div data-aos="${fadeEffect[effectCounter]}" class="col s12 m6 l6">
                     <div class="card large">
                         <div class="card-image">
                             <img alt="${productAlternateNames[cardCounter]}" src="assets/img/${productImageSources[cardCounter]}">
                             <span class="card-title">${cardTitles[cardCounter]}</span>
                         </div>
                         <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
+                            <p class="card-textContent">
+                                ${cardTextContent[cardCounter]}
+                            </p>
                         </div>
                         <div class="card-action">
                             <a class="teal-text" href="#">View more</a>
@@ -165,18 +182,72 @@ for(let i = 0; i < productImageSources.length / 2; i++)
                 </div>
             `
             cardCounter++;
+            effectCounter++;
         }
         cardRow += '</article>'
         productCards += cardRow
     }
 
 productCards += '</section>'
-
-console.log(productCards)
-
 productsContainer.innerHTML = productCards
 
+// end of card products
 
+// Fixed floating buttons in the bottom right corner
+//  Tools button
 
+var toolsBtn = document.getElementById('toolsButton')
+const toolBtnLink = '<a href="#!" class="btn-floating teal btn-large waves-effect waves-light"><i class="large material-icons">menu</i></a>'
+var toolList = '<ul>'
+const iconName = [
+    'person',
+    'shopping_cart'
+]
 
+    for(let i = 0; i < iconName.length; i++)
+        {
+            toolList += `
+                <li>
+                    <a href="#!" class="btn-floating teal darken-2 btn-large">
+                        <i class="material-icons">${iconName[i]}</i>
+                    </a>
+                </li>
+            `
+        }
+
+    toolList += '</ul>' 
+    toolsBtn.innerHTML = toolBtnLink + toolList
+
+// Back to top button
+
+const backToTopButton = document.getElementById('toTopBtn')
+const scrollBack = () => window.scrollTo(0, 0)
+
+backToTopButton.addEventListener('click', scrollBack)
+
+const showBtn = () => {
+    if(window.pageYOffset > 300)
+        {
+            if(backToTopButton.classList.contains('hide'))
+                {
+                    backToTopButton.classList.remove('scale-out')
+                    backToTopButton.classList.remove('hide')
+                    backToTopButton.classList.add('scale-in')
+                    toolsBtn.style.setProperty('bottom', '90px', 'important')
+                }
+        }
+    else {
+        if(!backToTopButton.classList.contains('hide'))
+            {
+                backToTopButton.classList.remove('scale-in')
+                backToTopButton.classList.add('scale-out')
+                backToTopButton.classList.add('hide')
+                toolsBtn.style.removeProperty('bottom')
+            }
+    }
+}
+
+window.addEventListener('scroll', showBtn)
+
+// End of floating buttons
 

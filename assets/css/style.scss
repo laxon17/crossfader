@@ -9,6 +9,7 @@
 }
 
 html {
+    overflow-x: hidden;
     &::-webkit-scrollbar {
         width: 8px;
     }
@@ -22,6 +23,7 @@ html {
     scroll-behavior: smooth;
     font-family: 'Oswald', sans-serif !important;
     body {
+        overflow-x: hidden;
         header {
             nav {
                 #logo-container {
@@ -29,7 +31,6 @@ html {
                     height: 50px;
                     width: 100px;
                     cursor: pointer;
-                    display: flex;
                     @include flexProperty(row, center, center);
                     span.crossfader-rail {
                         width: 100%;
@@ -68,9 +69,9 @@ html {
             margin: 0 auto;
             .slider {
                 width: 100% !important;
-                height: 80vh !important;
+                height: 85vh !important;
                 .slides {
-                    height: 80vh !important;
+                    height: 85vh !important;
                     .caption {
                         margin-top: 6rem !important;
                     }
@@ -85,7 +86,14 @@ html {
             .opposite {
                 clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 100% 15%);
             }
+            .card-textContent {
+                font-size: 1.15rem !important;
+            }
+        }
+        #toolsButton {
+            transition: 300ms ease !important;
         }
     }
 }
+
 

@@ -1,73 +1,8 @@
-// ********** Colors and positioning variables for styling ********** //
-
-
-$darkerBlue: #194c64;
-$blue: #035c80;
-$darkGrey: #2b2b2b;
-$lightGrey: #c0bfc0;
-$hoverGrey: #757575;
-$transparentGrey: #66666646;
-
-
-@mixin inputElement {
-    width: 100%;
-    font-size: 1.6vh;
-    background-color: $lightGrey;
-    border-radius: 5px;
-    padding: 5px;
-    margin: 5px 0 10px 0;
-    outline: none;
-    border: none;
-    transition: all 500ms;
-}
-
-    // *********** Box shadows ************ //
-
-$outerShadow: 0 5px 15px #000;
-
     // *********** Functions for positioning elements *********** // 
 
 @mixin flexProperty($direction, $spacing, $aligning){
+    display: flex;
     flex-direction: $direction;
     justify-content: $spacing;
     align-items: $aligning;
-}
-
-    // ************ Function for background ************ //
-
-@mixin backgroundProperty($location) {
-    background-image: $location;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-@mixin headerBackground() {
-    background: linear-gradient(-45deg,
-        #2b607a, 
-        #1a7db6, 
-        #03658b, 
-        #316181, 
-        #2ca1cf,
-        #004f63,
-        #20789b, 
-        #004f63
-    );
-    background-size: 400% 400%;
-    animation: gradient 20s ease-in-out infinite;
-}
-
-@mixin headingBackground() {
-    background: linear-gradient(-45deg,
-        #adadad,
-        #e0e0e0, 
-        #919191, 
-        #636363, 
-        #585858,
-        #aaaaaa,
-        #e0e0e0,
-        #adadad
-    );
-    background-size: 400% 400%;
-    animation: gradient 20s ease-in-out infinite;
 }

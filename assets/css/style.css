@@ -9,6 +9,7 @@
 }
 
 html {
+  overflow-x: hidden;
   scroll-behavior: smooth;
   font-family: 'Oswald', sans-serif !important;
 }
@@ -24,6 +25,10 @@ html::-webkit-scrollbar-thumb {
 
 html::-webkit-scrollbar-track {
   background: none;
+}
+
+html body {
+  overflow-x: hidden;
 }
 
 html body header nav #logo-container {
@@ -87,11 +92,11 @@ html body main {
 
 html body main .slider {
   width: 100% !important;
-  height: 80vh !important;
+  height: 85vh !important;
 }
 
 html body main .slider .slides {
-  height: 80vh !important;
+  height: 85vh !important;
 }
 
 html body main .slider .slides .caption {
@@ -109,5 +114,14 @@ html body main .cross-section {
 html body main .opposite {
   -webkit-clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 100% 15%);
           clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 100% 15%);
+}
+
+html body main .card-textContent {
+  font-size: 1.15rem !important;
+}
+
+html body #toolsButton {
+  -webkit-transition: 300ms ease !important;
+  transition: 300ms ease !important;
 }
 /*# sourceMappingURL=style.css.map */
