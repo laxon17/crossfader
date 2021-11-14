@@ -122,10 +122,10 @@ const productImageSources = [
 ]
 
 const productAlternateNames = [
-    'Traktor DJ Pro 3 Software',
+    'TRAKTOR DJ Pro 3 Software',
     'Serato DJ software',
     'Pioneer Controllers',
-    'Traktor Controllers',
+    'TRAKTOR Controllers',
     'Woman playing music',
     'Guy producing music'
 ]
@@ -135,14 +135,14 @@ const cardTitles = [
     'Serato DJ software',
     'Pioneer Controllers',
     'TRAKTOR Controllers',
-    'Traktor Pro 3 LINK',
+    'TRAKTOR Pro 3 LINK',
     'Techno producing with KOMPLETE'
 ]
 
 const cardTextContent = [
     'The new version, entitled Traktor Pro 3, was released on October 18.2018. In May 2021, a Beta release of Traktor Pro 3.5 added integration with Beatport Link. This new feature allowed DJs to make track selections from Beatport on the fly for the first time.',
     'Professional DJ software. From the unknown to the greatest, Serato DJ Pro is the most popular DJ software globally. When you’re talking about Hip-Hop, Dance, and everything in between, you’re looking at the standard.',
-    'We offer you many options with Pioneer. Bestsellers are standalone DJ Players, models like CDJ-2000, CDJ-2000 NXS2, CDJ-3000, others are DJ Controllers, DDJ SB, DDJ SB2, DDJ-1000, XDJ-RR etc',
+    'We offer you many options with Pioneer. Bestsellers are standalone DJ Players, models like CDJ-2000, CDJ-2000 NXS2, CDJ-3000, others are DJ Controllers, DDJ SB, DDJ SB2, DDJ-1000, XDJ-RR etc.',
     'TRAKTOR has kept dancefloors moving for almost 20 years. Our DJ controllers are designed to help you create powerful DJ mixes with TRAKTOR PRO 3 software. From DJ controllers designed for the club, to portable DJ controllers you can fit in a backpack.',
     'Beatport and Beatsource LINK are streaming services that make their extensive catalogues available directly in TRAKTOR PRO. With LINK, you can seamlessly explore, tag and mix new music with the music you already have in your local collection.',
     'Unique textures and otherworldly percussion with KOMPLETE. Learn how to use KOMPLETE 13 instruments and effects to generate new ideas, shape transients, and make a breakbeat techno masterpiece in our new Sketches video.'
@@ -176,7 +176,7 @@ for(let i = 0; i < Math.ceil(productImageSources.length / 2); i++)
                             </p>
                         </div>
                         <div class="card-action">
-                            <a class="teal-text" href="#">View more</a>
+                            <a class="teal-text" href="products.html">View more</a>
                         </div>
                     </div>
                 </div>
@@ -251,3 +251,60 @@ window.addEventListener('scroll', showBtn)
 
 // End of floating buttons
 
+// Product galery 
+
+const productChooser = document.getElementById('product-chooser')
+var chooserCounter
+var productRow
+
+const tooltips = [
+    'DJ CONTROLLERS',
+    'STUDIO MONITORS',
+    'FLIGHT CASES',
+    'HEADPHONES',
+    'MIDI KEYBOARDS',
+    'ACCESSORIES'
+]
+
+const productPictures = [
+    'traktor-s8.jpg',
+    'monitors.jpg',
+    'flightcase.jpg',
+    'headphones.jpg',
+    'komplete-audio.jpg',
+    'cables.jpg'
+]
+
+const chooserAlternates = [
+    'TRAKTOR S8',
+    'Pioneer speakers',
+    'TRAKTOR S8 Flightcase',
+    'SMS BY 50 DJ Headphones',
+    'Native Instruments KOMPLETE M32',
+    'Native Instruments 3.5mm audio splitter'
+]
+
+var finishedProduct = ''
+let productCounter = 0
+
+for(let i = 0; i < Math.ceil(productPictures.length / 3); i++)
+    {    
+        let productRow = '<div class="row" data-aos="fade-up">'
+        for( let j = 0; j < Math.floor(productPictures.length / 2); j++)
+            {
+                productRow += `
+                    <div id="product-item" class="col s8 m4 l3 offset-s2 offset-l1">
+                        <a class="tooltipped" href="products.html" data-position="left" data-tooltip="${tooltips[productCounter]}">
+                            <img src="assets/img/${productPictures[productCounter]}" alt="${chooserAlternates[productCounter]}" class="responsive-img">
+                        </a>
+                    </div>
+                ` 
+                productCounter++
+            }
+        productRow += '</div>'
+        finishedProduct += productRow
+    }
+
+productChooser.innerHTML = finishedProduct
+
+// End of product gallery

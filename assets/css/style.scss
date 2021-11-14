@@ -64,6 +64,9 @@ html {
                 }
             }
         }
+        .quote-border {
+            border-left-color: teal !important;
+        }
         main {
             width: 100%;
             margin: 0 auto;
@@ -81,7 +84,7 @@ html {
                 width: 100%;
                 height: 25vh;
                 clip-path: polygon(0 0, 100% 0, 100% 15% , 0 100%);
-                background: #eeeeee;
+                background-color: #eeeeee;
             }
             .opposite {
                 clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 100% 15%);
@@ -89,11 +92,25 @@ html {
             .card-textContent {
                 font-size: 1.15rem !important;
             }
-        }
-        #toolsButton {
-            transition: 300ms ease !important;
+            #biography-section {
+                margin-top: 100px !important;
+            }
+            #product-item {
+                a {
+                    img {
+                        transition: all 300ms ease;
+                    }
+                    &:hover img {
+                        transform: scale(105%);
+                    }
+                }
+            }
         }
     }
+    #toolsButton {
+        transition: 300ms ease !important;
+    }
 }
+
 
 

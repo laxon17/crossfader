@@ -6,6 +6,6 @@ $(document).ready(() => $('.slider').slider())
 
 $(document).ready(() => $('.fixed-action-btn').floatingActionButton())
         
-
+$(document).ready(() => $('.tooltipped').tooltip())
 
 AOS.init()

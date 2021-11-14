@@ -85,6 +85,10 @@ html body header nav #visible-links li:hover a {
   background: none;
 }
 
+html body .quote-border {
+  border-left-color: teal !important;
+}
+
 html body main {
   width: 100%;
   margin: 0 auto;
@@ -108,7 +112,7 @@ html body main .cross-section {
   height: 25vh;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 15%, 0 100%);
           clip-path: polygon(0 0, 100% 0, 100% 15%, 0 100%);
-  background: #eeeeee;
+  background-color: #eeeeee;
 }
 
 html body main .opposite {
@@ -120,7 +124,21 @@ html body main .card-textContent {
   font-size: 1.15rem !important;
 }
 
-html body #toolsButton {
+html body main #biography-section {
+  margin-top: 100px !important;
+}
+
+html body main #product-item a img {
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+html body main #product-item a:hover img {
+  -webkit-transform: scale(105%);
+          transform: scale(105%);
+}
+
+html #toolsButton {
   -webkit-transition: 300ms ease !important;
   transition: 300ms ease !important;
 }
