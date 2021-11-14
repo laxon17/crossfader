@@ -4,3 +4,9 @@
     padding-bottom: 1rem;
   }
 }
+
+@media screen and (max-width: 400px) {
+  html body .loading-container img {
+    width: 30%;
+  }
+}
