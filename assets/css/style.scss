@@ -24,6 +24,19 @@ html {
     font-family: 'Oswald', sans-serif !important;
     body {
         overflow-x: hidden;
+        .loading-container {
+            width: 100%;
+            height: 100vh;
+            background-color: #fff;
+            @include flexProperty(row, center,center);
+            position: fixed;
+            z-index: 100;
+            top: 0;
+            left: 0;
+            img {
+                width: 10%;
+            }
+        }
         header {
             nav {
                 #logo-container {
@@ -106,9 +119,6 @@ html {
                 }
             }
         }
-    }
-    #toolsButton {
-        transition: 300ms ease !important;
     }
 }
 

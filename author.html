@@ -15,10 +15,16 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
             <script src="assets/js/script.js" defer></script>
             <script src="assets/js/triggers.js" defer></script>
+            <script src="assets/js/footer-links.js" defer></script>
             <script src="https://kit.fontawesome.com/51a8d0c9c6.js" crossorigin="anonymous"></script>
         </head>
 
         <body>
+
+            <div class="loading-container">
+                <img class="loading-image" src="assets/img/preload.gif" alt="Preloader" />
+            </div>
+
             <!-- Responsive navigation menu with custom logo -->
 
                 <header class="navbar-fixed">
@@ -83,20 +89,17 @@
                         <div class="row">
                             <div class="col s12 m3 l3 left-on-med-and-up center-on-small-only">
                                 <h2 class="white-text flow-text">SHOP &#38; SERVICE</h2>
-                                <ul>
-                                    <li><a class="grey-text text-lighten-3" href="#!">SHOP INFO &#38; FAQ</a></li>
-                                    <li><a class="grey-text text-lighten-3" href="#!">MY ACCOUNT &#38; ORDER HISTORY</a></li>
-                                    <li><a class="grey-text text-lighten-3" href="#!">FIND A DEALER</a></li>
-                                    <li><a class="grey-text text-lighten-3" href="#!">NATIVE ACCESS</a></li>
+                                <ul class="store-info">
+                                    <!-- Content injected through javaScript -->
                                 </ul>
                             </div>
                             <div class="col s12 m6 l6 center-align">
                                 <div class="row">
                                     <h2 class="flow-text">CONNECT WITH US</h2>
-                                    <a href=""><i class="teal-text fab fa-twitter small"></i></a>
-                                    <a href=""><i class="teal-text fab fa-facebook-f small"></i></a>
-                                    <a href=""><i class="teal-text fab fa-instagram small"></i></a>
-                                    <a href=""><i class="teal-text fab fa-youtube small"></i></a>
+                                    <a href="#!"><i class="teal-text fab fa-twitter small"></i></a>
+                                    <a href="#!"><i class="teal-text fab fa-facebook-f small"></i></a>
+                                    <a href="#!"><i class="teal-text fab fa-instagram small"></i></a>
+                                    <a href="#!"><i class="teal-text fab fa-youtube small"></i></a>
                                 </div>
                                 <div class="row">
                                     <div class="col s6 m6 l6 offset-s3 offset-m3 offset-l3">
@@ -106,13 +109,8 @@
                             </div>
                             <div class="col s12 m3 l3 left-on-med-and-up center-on-small-only">
                                 <h2 class="white-text flow-text">COMPANY</h2>
-                                <ul>
-                                    <li><a class="grey-text text-lighten-3" href="#!">BLOG</a></li>
-                                    <li><a class="grey-text text-lighten-3" href="#!">CORPORATE INFO</a></li>
-                                    <li><a class="grey-text text-lighten-3" href="#!">CONTACT US</a></li>
-                                    <li><a class="grey-text text-lighten-3" href="#!">CAREERS</a></li>
-                                    <li><a class="grey-text text-lighten-3" href="#!">PRESS AREA</a></li>
-                                    <li><a class="grey-text text-lighten-3" href="#!">EDUCATION</a></li>
+                                <ul class="company-info">
+                                <!-- Content injected through javaScript -->
                                 </ul>
                             </div>
                         </div>
@@ -120,17 +118,11 @@
                     <div class="footer-copyright grey darken-4">
                         <div class="container">
                             Copyright &copy; Lazar Lalović 2021. All Rights Reserved.
-                            <a class="grey-text text-lighten-4 right" href="#!"><i class="small far fa-file-pdf"></i></a>
+                            <a class="grey-text text-lighten-4 right" href="documentation.pdf"><i class="small far fa-file-pdf"></i></a>
                         </div>
                     </div>
                 </footer>
             <!-- End of page footer -->
-
-            <div class="fixed-action-btn">
-                <button id="toTopBtn" class="btn-large teal btn-floating waves-effect waves-light scale-transition scale-out">
-                    <i class="large material-icons">keyboard_arrow_up</i>
-                </button>
-            </div>
 
             <!-- AOS initialization --> 
                 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

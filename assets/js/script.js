@@ -194,30 +194,6 @@ productsContainer.innerHTML = productCards
 // end of card products
 
 // Fixed floating buttons in the bottom right corner
-//  Tools button
-
-var toolsBtn = document.getElementById('toolsButton')
-const toolBtnLink = '<a href="#!" class="btn-floating teal btn-large waves-effect waves-light"><i class="large material-icons">menu</i></a>'
-var toolList = '<ul>'
-const iconName = [
-    'person',
-    'shopping_cart'
-]
-
-    for(let i = 0; i < iconName.length; i++)
-        {
-            toolList += `
-                <li>
-                    <a href="#!" class="btn-floating teal darken-2 btn-large">
-                        <i class="material-icons">${iconName[i]}</i>
-                    </a>
-                </li>
-            `
-        }
-
-    toolList += '</ul>' 
-    toolsBtn.innerHTML = toolBtnLink + toolList
-
 // Back to top button
 
 const backToTopButton = document.getElementById('toTopBtn')
@@ -233,7 +209,6 @@ const showBtn = () => {
                     backToTopButton.classList.remove('scale-out')
                     backToTopButton.classList.remove('hide')
                     backToTopButton.classList.add('scale-in')
-                    toolsBtn.style.setProperty('bottom', '90px', 'important')
                 }
         }
     else {
@@ -242,7 +217,6 @@ const showBtn = () => {
                 backToTopButton.classList.remove('scale-in')
                 backToTopButton.classList.add('scale-out')
                 backToTopButton.classList.add('hide')
-                toolsBtn.style.removeProperty('bottom')
             }
     }
 }
