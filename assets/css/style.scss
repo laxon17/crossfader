@@ -5,6 +5,7 @@
     box-sizing: border-box;
     a {
         text-transform: uppercase;
+        cursor: pointer;
     }
 }
 
@@ -117,6 +118,36 @@ html {
                         transform: scale(105%);
                     }
                 }
+            }
+            .tabs {
+                .indicator {
+                    background-color: teal !important;
+                }
+                .tab {
+                    a {
+                        &:hover {
+                            cursor: pointer;
+                        }
+                        &:focus {
+                            background-color: rgba(0, 128, 128, 0.2) !important;
+                        }
+                        &:focus .active {
+                            background-color: rgba(0, 128, 128, 0.2) !important;
+                        }
+                    }
+                }
+            }
+            .resize {
+                img {
+                    width: 100% !important;
+                    transition: all 300ms ease;
+                    &:hover {
+                        transform: scale(105%);
+                    } 
+                }
+            }
+            #price {
+                font-size: 1rem !important;
             }
         }
     }
