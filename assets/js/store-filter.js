@@ -86,20 +86,6 @@ for (let i = 0; i < Math.ceil(productTitles.length / 3); i++)
         productLists += productRow  
     }
 
-    
-
-
-            // <div class="card">
-            //             <div class="card-image resize2">
-            //                 <img src="assets/img/${productImages[itemCounter]}" alt="${productTitles[itemCounter]}" />
-            //                 <a class="btn-floating cartBtn btn-large right waves-effect waves-light teal" onclick="M.toast({html: 'Added to shopping cart!'})"><i class="material-icons">add_shopping_cart</i></a>
-            //             </div>
-            //             <div class="card-content resize">
-            //                 <span class="card-title">${productTitles[itemCounter]}</span>
-            //                 <p id="price" class="flow-text">${productPrices[itemCounter]}<span>&euro;</span></p>
-            //             </div>
-            //         </div>
-    
 shopList.innerHTML = productLists
 
 // Filter through items

@@ -5,19 +5,24 @@
         <link>https://laxon17.github.io/crossfader/index.html</link>
         <description>News</description>
             <item>
-                <title>How to get hired on Ibiza!</title>
-                <link>https://laxon17.github.io/crossfader/</link>
-                <description>Hurry up! There's a discount on our Exit app, check It out!</description>
+                <title>Software weekend!</title>
+                <link>https://laxon17.github.io/crossfader/products.html</link>
+                <description>We have a special discount on TRAKTOR Pro 3 and Serato DJ, check It out!</description>
             </item>
             <item>
                 <title>Carl Cox on our podcast!</title>
-                <link>https://laxon17.github.io/crossfader/</link>
-                <description>We updated Aria! Check it out!</description>
+                <link>https://laxon17.github.io/crossfader/community.html</link>
+                <description>Carl Cox talking about his first steps in DJ world!</description>
             </item>
             <item>
                 <title>These 5 DJ skills you didn't know!</title>
-                <link>https://laxon17.github.io/crossfader/</link>
-                <description>We published a new app! Fastest buyers get a discount.</description>
+                <link>https://laxon17.github.io/crossfader/community.html</link>
+                <description>Laidback Luke sharing his skills behind the players!</description>
+            </item>
+            <item>
+                <title>Live streaming with Adam Beyer on Friday!</title>
+                <link>https://laxon17.github.io/crossfader/community.html</link>
+                <description>Do you want to become a DJ? You have questions? What are you waiting for, join us!</description>
             </item>
     </channel>
 </rss>
