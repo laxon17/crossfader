@@ -1,3 +1,30 @@
+// Fixed floating buttons in the bottom right corner
+// Back to top button
+
+const backToTopButton = document.getElementById('toTopBtn')
+const scrollBack = () => window.scrollTo(0, 0)
+
+backToTopButton.addEventListener('click', scrollBack)
+
+const showBtn = () => {
+    if(window.pageYOffset > 300)
+        {
+            if(backToTopButton.classList.contains('hide'))
+                {
+                    backToTopButton.classList.remove('hide')
+                }
+        }
+    else {
+        if(!backToTopButton.classList.contains('hide'))
+            {
+                backToTopButton.classList.add('hide')
+            }
+    }
+}
+
+window.addEventListener('scroll', showBtn)
+
+// End of floating buttons
 // Nav bar extended
 
 const navigationMenu = document.querySelector('.navLinks')
@@ -193,37 +220,7 @@ productsContainer.innerHTML = productCards
 
 // end of card products
 
-// Fixed floating buttons in the bottom right corner
-// Back to top button
 
-const backToTopButton = document.getElementById('toTopBtn')
-const scrollBack = () => window.scrollTo(0, 0)
-
-backToTopButton.addEventListener('click', scrollBack)
-
-const showBtn = () => {
-    if(window.pageYOffset > 300)
-        {
-            if(backToTopButton.classList.contains('hide'))
-                {
-                    backToTopButton.classList.remove('scale-out')
-                    backToTopButton.classList.remove('hide')
-                    backToTopButton.classList.add('scale-in')
-                }
-        }
-    else {
-        if(!backToTopButton.classList.contains('hide'))
-            {
-                backToTopButton.classList.remove('scale-in')
-                backToTopButton.classList.add('scale-out')
-                backToTopButton.classList.add('hide')
-            }
-    }
-}
-
-window.addEventListener('scroll', showBtn)
-
-// End of floating buttons
 
 // Product galery 
 

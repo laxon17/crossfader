@@ -196,4 +196,13 @@ html body main .resize img:hover {
 html body main #price {
   font-size: 1rem !important;
 }
+
+html body main .margin-top {
+  margin-top: 3rem !important;
+}
+
+html body main .underline {
+  border-bottom: 2px solid teal;
+  padding-bottom: 5px !important;
+}
 /*# sourceMappingURL=style.css.map */
