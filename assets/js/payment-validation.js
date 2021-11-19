@@ -37,4 +37,3 @@ const birthDate = new Cleave('#birth', {
 const phoneNumber = new Cleave('#phone_number', {
     blocks: [3,3,2,2] 
 })
-
