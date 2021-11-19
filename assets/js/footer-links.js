@@ -1,4 +1,5 @@
 // Footer link
+
 // Store info links
 
 const storeInfo = [
@@ -15,7 +16,7 @@ var infoStorage = ''
 for (let i = 0; i < storeInfo.length; i++) {
     storeInfoItem = `
         <li>
-            <a class="grey-text text-lighten-3" href="#!">${storeInfo[i]}</a>
+            <a class="grey-text text-lighten-3">${storeInfo[i]}</a>
         </li>
     `
     infoStorage += storeInfoItem
@@ -39,7 +40,7 @@ var companyInfoStorage = ''
 for (let i = 0; i < companyInfo.length; i++) {
     companyInfoItem = `
         <li>
-            <a class="grey-text text-lighten-3" href="#!">${companyInfo[i]}</a>
+            <a class="grey-text text-lighten-3">${companyInfo[i]}</a>
         </li>
     `
     companyInfoStorage += companyInfoItem

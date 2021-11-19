@@ -1,30 +1,3 @@
-// Fixed floating buttons in the bottom right corner
-// Back to top button
-
-const backToTopButton = document.getElementById('toTopBtn')
-const scrollBack = () => window.scrollTo(0, 0)
-
-backToTopButton.addEventListener('click', scrollBack)
-
-const showBtn = () => {
-    if(window.pageYOffset > 300)
-        {
-            if(backToTopButton.classList.contains('hide'))
-                {
-                    backToTopButton.classList.remove('hide')
-                }
-        }
-    else {
-        if(!backToTopButton.classList.contains('hide'))
-            {
-                backToTopButton.classList.add('hide')
-            }
-    }
-}
-
-window.addEventListener('scroll', showBtn)
-
-// End of floating buttons
 // Nav bar extended
 
 const navigationMenu = document.querySelector('.navLinks')
@@ -69,6 +42,34 @@ for (let i = 0; i < navigationLinks.length; i++)
             listItem.append(navLink)
             sideNavMenu.append(listItem)
     }
+
+// Fixed floating buttons in the bottom right corner
+// Back to top button
+
+const backToTopButton = document.getElementById('toTopBtn')
+const scrollBack = () => window.scrollTo(0, 0)
+
+backToTopButton.addEventListener('click', scrollBack)
+
+const showBtn = () => {
+    if(window.pageYOffset > 300)
+        {
+            if(backToTopButton.classList.contains('hide'))
+                {
+                    backToTopButton.classList.remove('hide')
+                }
+        }
+    else {
+        if(!backToTopButton.classList.contains('hide'))
+            {
+                backToTopButton.classList.add('hide')
+            }
+    }
+}
+
+window.addEventListener('scroll', showBtn)
+
+// End of floating buttons
 
 // Sliding carousel
 

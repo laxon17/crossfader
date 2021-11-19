@@ -9,6 +9,9 @@
   .quantityBox {
     margin-bottom: 1rem !important;
   }
+  .formContainer {
+    margin-top: 50px !important;
+  }
 }
 
 @media screen and (max-width: 500px) {

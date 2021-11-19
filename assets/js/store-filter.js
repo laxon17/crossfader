@@ -105,14 +105,16 @@ shopList.innerHTML = productLists
 
 // Filter through items
 
+var cartContainer = document.getElementById('cartContainer')
 const filterBtns = document.querySelectorAll('[data-filter]')
 const cartBtn = document.querySelector('[data-cart]')
-const cartContainer = document.getElementById('cartContainer')
 const storeCaption = document.getElementsByClassName('store-captions')[0]
 const cartInfo = document.getElementsByClassName('cart-info')[0]
+const purchaseBtn = document.getElementById('purchaseBtn')
 cartContainer.classList.add('hide')
 storeCaption.classList.add('hide')
 cartInfo.classList.add('hide')
+
 
 cartBtn.addEventListener('click', () => {
     cartContainer.classList.remove('hide')
@@ -148,34 +150,42 @@ for (let i = 0; i < targetNames.length; i++)
 const filterSelection = (filterName) => {
     let filterItem = document.getElementsByClassName('filteringItem')
     if (filterName == 'all') filterName = ''
-    for (let i = 0; i < filterItem.length; i++) 
-        {
-            filterItem[i].classList.add('hide')
-            if (filterItem[i].className.indexOf(filterName) > -1) filterItem[i].classList.remove('hide')
-        }
+    for (let i = 0; i < filterItem.length; i++) {
+        filterItem[i].classList.add('hide')
+        if (filterItem[i].className.indexOf(filterName) > -1) filterItem[i].classList.remove('hide')
+    }
 }
 
 // cart functions (add/remove/modify)
 
-const removeButtons = document.querySelectorAll('#removeBtn')
-for(let i = 0; i < removeButtons.length; i++) {
+if(document.readyState == 'loading') {
+    document.addEventListener('DOMContentLoaded', ready)
+} else {
+    ready()
+}
+
+function ready() {
+    const removeButtons = document.querySelectorAll('#removeBtn')
+    for(let i = 0; i < removeButtons.length; i++) {
     let removeButton = removeButtons[i]
         removeButton.addEventListener('click', removeCartItem) 
-}
+    }
 
-const quantityInputs = document.getElementsByClassName('cart-quantity')
-for(let i = 0; i < quantityInputs.length; i++) {
+    const quantityInputs = document.getElementsByClassName('cart-quantity')
+    for(let i = 0; i < quantityInputs.length; i++) {
     let quantityInput = quantityInputs[i]
         quantityInput.addEventListener('change', quantityChanged)
-    
-}
+    }
 
-const addToCartBtns = document.querySelectorAll('#addToCartBtn')
-for(let i = 0; i < addToCartBtns.length; i++)
-    {
+    const addToCartBtns = document.querySelectorAll('#addToCartBtn')
+    for(let i = 0; i < addToCartBtns.length; i++) {
         let addToCartBtn = addToCartBtns[i]
             addToCartBtn.addEventListener('click', addToCart)
     }
+}
+
+
+
 
 function removeCartItem(event) {
     let buttonClicked = event.target
@@ -248,10 +258,16 @@ function updateCartTotal() {
         document.getElementsByClassName('price-total')[0].innerText = total;
 }
 
-if(!cartContainer.hasChildNodes()) {
-    var message = document.createElement('blockquote')
-        message.innerText = 'Your cart is empty'
-        message.classList.add('quote-border')
-        cartContainer.append(message)
-}
-else message.classList.remove('hide')
+purchaseBtn.addEventListener('click', () => {
+    if(!cartContainer.hasChildNodes()) {
+        purchaseBtn.removeAttribute('data-target', 'modal1')
+        alert('Your cart is empty!')
+    } else {
+        purchaseBtn.setAttribute('data-target', 'modal1')
+    }
+})
+
+const agreePurchaseBtn = document.getElementById('modal-agree')
+agreePurchaseBtn.addEventListener('click', () => {
+    window.location.replace('/payment.html')
+})

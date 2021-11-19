@@ -156,6 +156,44 @@ html {
                 border-bottom: 2px solid teal;
                 padding-bottom: 5px !important;
             }
+            .community-text {
+                font-weight: 200 !important;
+            }
+            .pointer {
+                cursor: pointer;
+            }
+            .resize-card {
+                transition: all 300ms ease;
+                &:hover {
+                    transform: scale(103%);
+                }
+            }
+            iframe {
+                border: 0;
+                width: 100%;
+                height: 400px;
+            }
+            .textarea {
+                width: 100%;
+                height: 180px;
+                border: 0;
+                outline: 0;
+                border-bottom: 1px solid rgb(180, 180, 180);
+                padding: 10px;
+                resize: none;
+                transition: all 300ms ease;
+                &:focus {
+                    border: 0;
+                    outline: 0;
+                    border-bottom: 1px solid teal;
+                }
+            }
+            .fail {
+                border-bottom-color: red !important;
+            }
+            .pass {
+                border-bottom-color: teal !important;
+            }
         }
     }
 }

@@ -205,4 +205,54 @@ html body main .underline {
   border-bottom: 2px solid teal;
   padding-bottom: 5px !important;
 }
+
+html body main .community-text {
+  font-weight: 200 !important;
+}
+
+html body main .pointer {
+  cursor: pointer;
+}
+
+html body main .resize-card {
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+html body main .resize-card:hover {
+  -webkit-transform: scale(103%);
+          transform: scale(103%);
+}
+
+html body main iframe {
+  border: 0;
+  width: 100%;
+  height: 400px;
+}
+
+html body main .textarea {
+  width: 100%;
+  height: 180px;
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid #b4b4b4;
+  padding: 10px;
+  resize: none;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+html body main .textarea:focus {
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid teal;
+}
+
+html body main .fail {
+  border-bottom-color: red !important;
+}
+
+html body main .pass {
+  border-bottom-color: teal !important;
+}
 /*# sourceMappingURL=style.css.map */
