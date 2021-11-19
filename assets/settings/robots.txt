@@ -1,6 +1,7 @@
 User-agent: *
-Disallow: /admin/
-Disallow: /private/
-Disallow: payment.html
+
+Disallow: /crossfader/admin/
+Disallow: /crossfader/private/
+Disallow: /crossfader/payment.html
 
 sitemap: https://laxon17.github.io/crossfader/assets/settings/sitemap.xml

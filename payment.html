@@ -60,8 +60,71 @@
             <main>
                 <div class="cross-section"></div>
 
-                <section class="container">
-                    
+                <section class="container center-align">
+                    <h3>PAYMENT</h3>
+                </section>
+
+                <section class="container margin-top">
+                    <div class="row">
+                        <form class="col s12 m10 l8 offset-m1 offset-l2">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input placeholder="e.g. John" id="first_name" type="text" class="validate" required/>
+                                    <label for="first_name">First name</label>
+                                    <span class="errorMsg"></span>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input type="text" placeholder="e.g Doe" id="last_name" class="validate" required />
+                                    <label for="last_name">Last name</label>
+                                    <span class="errorMsg"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input placeholder="e.g. johndoe@mail.com" id="email" type="email" class="validate" required />
+                                    <label for="email">Your mail</label>
+                                    <span class="errorMsg"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input placeholder="DD-MM-YYYY" id="birth" type="text" class="validate" required />
+                                    <label for="email">Date of birth</label>
+                                    <span class="errorMsg"></span>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input placeholder="06X XXX XX XX" id="phone_number" type="text" class="validate" required />
+                                    <label for="phone_number">Phone number</label>
+                                    <span class="errorMsg"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s10 offset-s1">
+                                    <i id="card_brand" class="fas fa-credit-card prefix"></i>
+                                    <input placeholder="XXXX-XXXX-XXXX-XXXX" type="text" class="validate" id="card_number" required />
+                                    <label for="card_number">Card number</label>
+                                    <span class="errorMsg"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input placeholder="MM/YY" type="text" class="validate" id="expire_date" required />
+                                    <label for="card_number">Card expire date</label>
+                                    <span class="errorMsg"></span>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input placeholder="XXX" type="number" class="validate" id="cvc_number" required />
+                                    <label for="cvc_number">Card verification code</label>
+                                    <span class="errorMsg"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s12 center-align">
+                                    <button class="btn btn-large teal waves-effect waves-light">PAY</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </section>
 
                 <div class="cross-section opposite"></div>
@@ -110,6 +173,8 @@
             <!-- End of page footer -->
             
 
+            <!-- Cleave jS for form formatting -->
+                <script src="node_modules/cleave.js/dist/cleave.min.js"></script>
             <!-- AOS initialization --> 
                 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
             <!-- JQuery -->

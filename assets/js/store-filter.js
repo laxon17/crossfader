@@ -269,5 +269,5 @@ purchaseBtn.addEventListener('click', () => {
 
 const agreePurchaseBtn = document.getElementById('modal-agree')
 agreePurchaseBtn.addEventListener('click', () => {
-    window.location.replace('./payment.html')
+    window.location.replace('https://laxon17.github.io/crossfader/payment.html')
 })

@@ -44,6 +44,7 @@ for (let i = 0; i < navigationLinks.length; i++)
     }
 
 // Fixed floating buttons in the bottom right corner
+
 // Back to top button
 
 const backToTopButton = document.getElementById('toTopBtn')
