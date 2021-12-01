@@ -1,22 +1,24 @@
-navBars()
-
 // =============================================================== PAGE MANAGEMENT ============================================================================
-if((window.location.href).indexOf('index') > -1 ){
+let pageLink = window.location.pathname
+
+if(pageLink == '/index.html' || pageLink == '/'){
     homePage()
 }
 
-if((window.location.href).indexOf('support') > -1 ){
+if(pageLink == '/support.html'){
     contactValidation()
 }
 
-if((window.location.href).indexOf('products') > -1 ){
+if(pageLink == '/products.html'){
     productPage()
 }
 // ============================================================= END OF PAGE MANAGEMENT ========================================================================
 
-
-navigationButton()
+// DEFAULT LOADINGS
+navBars()
+scrollToTopBtn()
 footerSection()
+// END OF DEFAULT LOADINGS
 
 // ==================================================================== PAGE FUNCTIONS =========================================================================
 function navBars() {
@@ -435,16 +437,62 @@ function contactValidation() {
     const nameField = document.querySelector('#full_name')
     const mailField = document.querySelector('#mail')
     const textField = document.querySelector('#textarea2')
-    const nameError = document.querySelector('#nameError')
-    const mailError = document.querySelector('#mailError')
-    const textError = document.querySelector('#textError')
     const submitBtn = document.querySelector('#contactSubmit')
     const fields = document.querySelectorAll('.fieldInput')
+    const questionSelect = document.querySelector('#typeSelect')
+    const professionSelect = document.querySelector('#professionSelect')
+    const newsletter = document.querySelector('#newsletter')
     const inputFields = Array.from(fields)
 
     // CHECK FUNCTIONS
+    const checkSelects = () => {
+        let selectedQuestion = questionSelect.options[questionSelect.selectedIndex].value
+        let selectedProfession = professionSelect.options[professionSelect.selectedIndex].value
+            if(selectedQuestion != 0 && selectedProfession != 0) return 1
+            return 0        
+    }
+
+    const checkTextField = () => {
+        if(textField.value.length > 450) {
+            fieldInvalid(textField, "Text can't be longer than 450 characters!")
+            return 0
+        } else if(textField.value == '' || textField.value == null || textField.value.length == 0) {
+            fieldInvalid(textField, "Don't leave this empty!")
+            return 0
+        } else {
+            fieldValid(textField)
+            return 1
+        }
+    }
+
+    const checkName = () => {
+        let nameField = document.querySelector('#full_name') 
+        let nameExpression = /^[A-ZČĆŽĐŠ][a-zćčžđš]{1,14}\s([A-ZČĆŽĐŠ][a-zćčžđš]{1,14})?\s?[A-ZČĆŽŠĐ][a-zćčžđš]{1,19}$/
+            nameFieldValue = nameField.value
+            if(nameExpression.test(nameFieldValue)) {
+                fieldValid(nameField)
+                return 1 // Name recognized, return 1
+            } else {
+                fieldInvalid(nameField, 'Check your name format!')
+                return 0 // Name is not valid, return 0
+            }
+    }
+
+    const checkMail = () => {
+        let mailField = document.querySelector('#mail')
+        let mailExpression = /^[a-zA-Z0-9]([a-z]|[0-9])+\.?-?_?([a-z]|[0-9])*\.?([a-z]|[0-9])*\@[a-z]{3,}\.([a-z]{2,4}\.)?([a-z]{2,4})$/g
+            mailFieldValue = mailField.value 
+            if(mailExpression.test(String(mailFieldValue))) {
+                fieldValid(mailField)
+                return 1 // Mail is valid, return 1
+            } else {
+                fieldInvalid(mailField, 'E-mail is not in a good format!')
+                return 0 // Mail isn't as expected, return 0
+            }   
+    }
+
     const checkBtn = () => {
-        if(checkTextField() && checkName() && checkMail()) {
+        if(checkTextField() && checkName() && checkMail() && checkSelects()) {
             if(submitBtn.classList.contains('red')) {
                 submitBtn.classList.remove('red')
                 submitBtn.classList.add('teal')
@@ -462,96 +510,6 @@ function contactValidation() {
             return 0 // Button is not allowed to submit if any field isn't filled
         }
     }
-
-    const checkTextField = () => {
-        if(textField.value.length > 450) {
-            if(textField.classList.contains('pass')) {
-                textField.classList.remove('pass')
-                textField.classList.add('fail')
-            } else {
-                textField.classList.add('fail')
-            }
-            textError.style.color = 'red'
-            textError.innerText = `Text can't be longer than 450 characters`
-            return 0 // Returns 0 if value is over 450
-        } else if(textField.value == '' || textField.value == null || textField.value.length == 0) {
-            if(textField.classList.contains('pass')) {
-                textField.classList.remove('pass')
-                textField.classList.add('fail')
-            } else {
-                textField.classList.add('fail')
-            }
-            textError.style.color = 'red'
-            textError.innerHTML = `Don't leave this empty!`
-            return 0
-        } else {
-            if(textField.classList.contains('fail')) {
-                textField.classList.remove('fail')
-                textField.classList.add('pass')
-            } else {
-                textField.classList.add('pass')
-            }
-            textError.style.color = 'teal'
-            textError.innerHTML = `&check;`
-            return 1
-        }
-    }
-
-    const checkName = () => {
-        let nameField = document.querySelector('#full_name') 
-        let nameExpression = /^[A-ZČĆŽĐŠ][a-zćčžđš]{1,14}\s+[A-ZČĆŽŠĐ]?[a-zćčžđš]{1,20}$/
-            nameFieldValue = nameField.value
-            if(nameExpression.test(nameFieldValue)) {
-                if(nameField.classList.contains('fail')) {
-                    nameField.classList.remove('fail')
-                    nameField.classList.add('pass')
-                } else {
-                    nameField.classList.add('pass')
-                }
-                nameError.style.color = 'teal'
-                nameError.innerHTML = '&check;'
-                return 1 // Name not recognized, return 0
-            } else {
-                if(nameField.classList.contains('pass')) {
-                    nameField.classList.remove('pass')
-                    nameField.classList.add('fail')
-                } else {
-                    nameField.classList.add('fail')
-                }
-                nameError.style.color = 'red'
-                nameError.innerText = `Your name is not recognized, check placeholder!`
-                return 0 // Name is valid, return 1
-            }
-
-            
-    }
-
-    const checkMail = () => {
-        let mailField = document.querySelector('#mail')
-        let mailExpression = /^[a-zA-Z0-9]([a-z]|[0-9])+\.?-?_?([a-z]|[0-9])*\.?([a-z]|[0-9])*@[a-z]{3,}\.[a-z]{2,3}?$/g
-            mailFieldValue = mailField.value 
-            if(mailExpression.test(String(mailFieldValue))) {
-                if(mailField.classList.contains('fail')) {
-                    mailField.classList.remove('fail')
-                    mailField.classList.add('pass')
-                } else {
-                    mailField.classList.add('pass')
-                }
-                mailError.style.color = 'teal'
-                mailError.innerHTML = `&check;`
-                return 1 // Mail is valid, return 1
-            } else {
-                if(mailField.classList.contains('pass')) {
-                    mailField.classList.remove('pass')
-                    mailField.classList.add('fail')
-                } else {
-                    mailField.classList.add('fail')
-                }
-                mailError.style.color = 'red'
-                mailError.innerHTML = `Format of mail not as expected!`
-                return 0 // Mail doesn't contain @, return 0
-            }   
-    }
     // END OF CHECK FUNCTIONS
 
     // EVENT LISTENERS
@@ -561,9 +519,16 @@ function contactValidation() {
 
     nameField.addEventListener('keyup', checkName)
 
+    questionSelect.addEventListener('change', checkSelects)
+
+    professionSelect.addEventListener('change', checkSelects)
+
     contactForm.addEventListener('submit' , (event) => {
+        let selectedProfession = professionSelect.options[professionSelect.selectedIndex].innerText
+        let selectedQuestion = questionSelect.options[questionSelect.selectedIndex].innerText
         if(checkBtn()) {
-            alert('Thank you for contacting us! The answer will be sent to your mail. Your Crossfader team!')
+            if(newsletter.checked) alert(`Thank you best ${selectedProfession} ${nameField.value.split(' ')[0]} for contacting us about ${selectedQuestion}, we will send you the answer on ${mailField.value} as soon as possible! P.S. We won't spam your mail with our newsletter! :)`)
+            else alert(`Thank you best ${selectedProfession} ${nameField.value.split(' ')[0]} for contacting us about ${selectedQuestion}, we will send you the answer on ${mailField.value} as soon as possible! P.S. Why didn't you subscribe to newsletter :(`)
             event.preventDefault()
         } else {
             alert('Looks like you forgot something to fill!')
@@ -575,11 +540,44 @@ function contactValidation() {
     })
     // END OF EVENT LISTENERS
 
+    // FUNCTIONS
+    function fieldValid(field) {
+        if(field.classList.contains('fail')) {
+            field.classList.remove('fail')
+            field.classList.add('pass')
+            field.nextElementSibling.classList.remove('red-text')
+            field.nextElementSibling.classList.add('teal-text')
+        } else {
+            field.classList.add('pass')
+        }
+        field.nextElementSibling.innerHTML = `&check;`
+        field.nextElementSibling.classList.add('teal-text')
+        
+    }
 
-    // loop through input fields, see if all returned 1, then make submitBtn valid, else, Btn is disabled
+    function fieldInvalid(field, text) {
+        if(field.classList.contains('pass')) {
+            field.classList.remove('pass')
+            field.classList.add('fail')
+            field.nextElementSibling.classList.remove('teal-text')
+            field.nextElementSibling.classList.add('red-text')    
+        } else {
+            field.classList.add('fail')
+        }
+        field.nextElementSibling.innerText = `${text}`
+        field.nextElementSibling.classList.add('red-text')
+    }
+    // END OF FUCNTIONS
+
+    // LISTEN IF ANY OF REQUIRED FIELDS ISN'T FILLED/SELECTED, IF ALL ARE, RETURN 1 AND MAKE BUTTON VALID, ELSE RETURN 0 AND THE BUTTON CAN'T SUBMIT
     inputFields.forEach(inputField => {
         inputField.addEventListener('keyup', checkBtn)
     })
+    
+    professionSelect.addEventListener('change', checkBtn)
+
+    questionSelect.addEventListener('change', checkBtn)
+
 }
 
 function footerSection() {
@@ -629,7 +627,7 @@ function footerSection() {
     // END OF COMPANY INFO LINKS
 }
 
-function navigationButton() {
+function scrollToTopBtn() {
     // BACK TO TOP BUTTON
     const backToTopButton = document.getElementById('toTopBtn')
     const scrollBack = () => window.scrollTo(0, 0)
@@ -638,12 +636,14 @@ function navigationButton() {
 
     const showBtn = () => {
         if(window.pageYOffset > 300) {
-            if(backToTopButton.classList.contains('hide')) {
-                backToTopButton.classList.remove('hide')
+            if(backToTopButton.classList.contains('scale-out')) {
+                backToTopButton.classList.remove('scale-out')
+                backToTopButton.classList.add('scale-in')
             }
         } else {
-            if(!backToTopButton.classList.contains('hide')) {
-                backToTopButton.classList.add('hide')
+            if(backToTopButton.classList.contains('scale-in')) {
+                backToTopButton.classList.remove('scale-in')
+                backToTopButton.classList.add('scale-out')    
             }
         }
     }
@@ -666,7 +666,7 @@ $(document).ready(() => $('.modal').modal())
 
 $(document).ready(() => $('.slider').slider())
         
-$(document).ready(() =>$('select').formSelect())
+$(document).ready(() => $('select').formSelect())
 
 $(document).ready(() => $('.tooltipped').tooltip())
 
