@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <!--Import Google Icon Font-->
+                <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+            <!--Import materialize.css-->
+                <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"  media="screen,projection" />
+            <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+            <link rel="stylesheet" type="text/css" href="assets/css/responsive.css" />
+            <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+            <link rel="icon" href="assets/img/logo.ico" />
+            <meta name="author" content="Lazar Lalović, 62/20" />
+            <meta name="description" content="Prices page of crossfader!" />
+            <meta name="keywords" content="Price, price list, products, table, contents, money, euro, currency" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <script src="assets/js/script.js" defer></script>
+            <script src="https://kit.fontawesome.com/51a8d0c9c6.js" crossorigin="anonymous"></script>
+            <title>Prices</title>
+        </head>
+
+        <body>
+            <div class="loading-container">
+                <img class="loading-image" src="assets/img/preload.gif" alt="Preloader" />
+            </div>
+            <!-- Responsive navigation menu with custom logo -->
+
+                <header class="navbar-fixed">
+                    <nav class="white">
+                        <div class="container">
+                            <div class="nav-wrapper">
+                                <a id="logo-container" class="brand-logo" href="index.html">
+                                    <span class="crossfader-rail"></span>
+                                    <span class="crossfader-slider"></span>
+                                </a>
+                                <a href="#" data-target="mobile-nav" class="sidenav-trigger">
+                                    <i class="material-icons black-text">menu</i>
+                                </a>
+                                <ul id="visible-links" class="right hide-on-med-and-down navLinks">  
+                                    <!-- Content injected through javaScript -->
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </header>
+
+                <!-- Hidden navigation menu -->
+                    <ul class="sidenav sideNavCollapsed" id="mobile-nav">
+                        <!-- Content injected through javaScript -->
+                    </ul>
+                <!-- End of hidden navigation menu -->
+
+            <!-- End of responsive navigation menu -->
+
+            <!-- Main section of page -->
+                <main>
+
+                    <div class="cross-section"></div>
+                    
+                    <section class="container margin-top">
+                        <div class="row">
+                            <div class="col s10 m8 l8 offset-s1 offset-m2 offset-l2 center-align">
+                                <h3>PRICES</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s10 m8 l8 offset-s1 offset-m2 offset-l2 center-align">
+                                <p class="flow-text community-text">
+                                    Here you can see all product prices that are and aren't pinned to products page.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="container margin-top">
+                        <div class="row">
+                            <div class="col s10 m6 l6 offset-s1 offset-m3 offset-l3">
+                                <input id="product-search" type="text" placeholder="Search for products..." />
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="container margin-top">
+                        <section class="container" id="table-container">
+                            <!-- Content injected through jS -->
+                            <span></span>
+                        </section>
+                    </section>
+
+                    <div class="cross-section opposite"></div>
+
+                </main>
+            <!-- End of main section of page -->
+
+            <!-- Page footer -->
+                <footer class="page-footer grey darken-3">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col s12 m3 l3 left-on-med-and-up center-on-small-only">
+                                <h2 class="white-text flow-text">SHOP &#38; SERVICE</h2>
+                                <ul class="store-info">
+                                    <!-- Content injected through javaScript -->
+                                </ul>
+                            </div>
+                            <div class="col s12 m6 l6 center-align">
+                                <div class="row">
+                                    <h2 class="flow-text">CONNECT WITH US</h2>
+                                    <a><i class="teal-text fab fa-twitter small"></i></a>
+                                    <a><i class="teal-text fab fa-facebook-f small"></i></a>
+                                    <a><i class="teal-text fab fa-instagram small"></i></a>
+                                    <a><i class="teal-text fab fa-youtube small"></i></a>
+                                </div>
+                                <div class="row">
+                                    <div class="col s6 m6 l6 offset-s3 offset-m3 offset-l3">
+                                        <img src="assets/img/payment-methods.jpg" alt="Payment methods" class="responsive-img">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col s12 m3 l3 left-on-med-and-up center-on-small-only">
+                                <h2 class="white-text flow-text">COMPANY</h2>
+                                <ul class="company-info">
+                                   <!-- Content injected through javaScript -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-copyright grey darken-4">
+                        <div class="container">
+                            Copyright &copy; Lazar Lalović 2021. All Rights Reserved.
+                            <a class="grey-text text-lighten-4 right" href="documentation.pdf"><i class="small far fa-file-pdf"></i></a>
+                        </div>
+                    </div>
+                </footer>
+            <!-- End of page footer -->
+
+
+            <div class="fixed-action-btn">
+                <button id="toTopBtn"  class="btn-large teal btn-floating waves-effect waves-light scale-transition scale-out">
+                    <i class="large material-icons">keyboard_arrow_up</i>
+                </button>
+            </div>
+
+            
+            <!-- AOS initialization --> 
+                <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+            <!-- JQuery -->
+                <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+            <!--JavaScript at end of body for optimized loading-->
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        </body>
+    </html>

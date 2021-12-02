@@ -1,16 +1,20 @@
 // =============================================================== PAGE MANAGEMENT ============================================================================
 let pageLink = window.location.pathname
 
-if(pageLink == '/crossfader/index.html' || pageLink == '/crossfader/'){
+if(pageLink == '/index.html' || pageLink == '/'){
     homePage()
 }
 
-if(pageLink == '/crossfader/support.html'){
+if(pageLink == '/support.html'){
     contactValidation()
 }
 
-if(pageLink == '/crossfader/products.html'){
+if(pageLink == '/products.html'){
     productPage()
+}
+
+if(pageLink == '/prices.html'){
+    pricesPage()
 }
 // ============================================================= END OF PAGE MANAGEMENT ========================================================================
 
@@ -28,14 +32,16 @@ function navBars() {
     const navigationLinkNames = [
         'Products', 
         'Community', 
-        'Support', 
+        'Support',
+        'Prices', 
         'Author'
     ]
     const navigationLinks = [
         'products.html',
         'community.html',
         'support.html', 
-        'author.html'
+        'prices.html',
+        'author.html'    
     ]
 
     for (let i = 0; i < navigationLinks.length; i++) {
@@ -578,6 +584,177 @@ function contactValidation() {
 
     questionSelect.addEventListener('change', checkBtn)
 
+}
+
+function pricesPage() {
+
+    const tableContainer = document.getElementsByClassName('table-holder')[0]
+
+    const itemPrice = [
+        //traktor
+        149.99,
+        169.99,
+        199.99,
+        230,
+        329.99,
+        349.99,
+        599.99,
+        499.99,
+        990,
+        49.99,
+        79.99,
+        30,
+        100,
+        109.99,
+        159.99,
+        99.99,
+        110,
+        159.99,
+        239.99,
+        279.99,
+        108,
+        49.99,
+        13.99,
+        //pioneer
+        449.99,
+        469.99,
+        299.99,
+        230,
+        349.99,
+        449.99,
+        269.99,
+        199.99,
+        250,
+        109.99,
+        139.99,
+        399.99,
+        789.99,
+        1099.99,
+        999.99,
+        1199.99,
+        1120,
+        559.99,
+        439.99,
+        979.99,
+        1089.99,
+        1899.99,
+        2099.99,
+        2399.99,
+        //numark   
+        109.99,
+        139.99,
+        189.99,
+        139.99,
+        189.99,
+        219.99,
+        70,
+        659.99,
+        859.99
+    ]
+    const itemName = [
+        'TRAKTOR S2 MK1',
+        'TRAKTOR S2 MK2',
+        'TRAKTOR S2 MK3',
+        'TRAKTOR S3',
+        'TRAKTOR S4 MK1',
+        'TRAKTOR S4 MK2',
+        'TRAKTOR S4 MK3',
+        'TRAKTOR S5',
+        'TRAKTOR S8',
+        'TRAKTOR PRO 2',
+        'TRAKTOR PRO 3',
+        'TRAKTOR LE 3',
+        'TRAKTOR FLIGHTCASE S2',
+        'TRAKTOR FLIGHTCASE S4 & S5',
+        'TRAKTOR FLIGHTCASE S8',
+        'TRAKTOR KONTROL X1',
+        'TRAKTOR KONTROL F1',
+        'TRAKTOR KONTROL Z1',
+        'TRAKTOR KONTROL D2',
+        'TRAKTOR KONTROL Z2',
+        'TRAKTOR SCRATCH A6',
+        'TRAKTOR AUDIO 2',
+        'TRAKTOR DJ CABLE',
+        'PIONEER DDJ ERGO K',
+        'PIONEER DDJ ERGO V',
+        'PIONEER DDJ RB',
+        'PIONEER DDJ RR',
+        'PIONEER DDJ RX',
+        'PIONEER DDJ RZX',
+        'PIONEER DDJ S1',
+        'PIONEER DDJ SB',
+        'PIONEER DDJ SB2',
+        'PIONEER DDJ WeGO2-W',
+        'PIONEER DDJ WeGO3-G',
+        'PIONEER DDJ SX2',
+        'PIONEER DDJ T1',
+        'PIONEER DDJ 1000',
+        'PIONEER XDJ AERO',
+        'PIONEER XDJ RX',
+        'PIONEER XDJ R1',
+        'PIONEER EFX 1000',
+        'PIONEER EFX 500-R',
+        'PIONEER DJM 850',
+        'PIONEER DJM 1000',
+        'PIONEER CDJ 2000',
+        'PIONEER CDJ 2000NXS',
+        'PIONEER CDJ 2000NXS2',
+        'NUMARK MIXTRACK 1',
+        'NUMARK MIXTRACK 2',
+        'NUMARK MIXTRACK 3',
+        'NUMARK MIXTRACK PRO 1',
+        'NUMARK MIXTRACK PRO 2',
+        'NUMARK MIXTRACK PRO 3',
+        'NUMARK PARTY MIX',
+        'NUMARK NV I',
+        'NUMARK NV II',
+    ]
+
+    let priceTableContainer = document.querySelector('#table-container')
+    let priceTable = document.createElement('table')
+    
+    for(let i = 0; i < itemName.length; i++){
+        let tableRow = document.createElement('tr')
+        for(let j = 0; j < 2; j++){
+            let rowCell = document.createElement('td')
+            let cellText
+                switch(j) {
+                    case 0: 
+                        cellText = document.createTextNode(itemName[i])
+                        rowCell.append(cellText)
+                        tableRow.append(rowCell)
+                        break
+                    case 1: 
+                        cellText = document.createTextNode(`$ ${itemPrice[i]}`)
+                        rowCell.append(cellText)
+                        tableRow.append(rowCell)
+                        break
+                    default: 
+                        break
+                }
+        }
+        priceTable.append(tableRow)
+    }
+    priceTableContainer.append(priceTable)
+
+    let searchInput = document.querySelector('#product-search').addEventListener('keyup', filterProducts)
+
+    function filterProducts() {
+        let cellText, rowCell
+        let searchInput = document.querySelector('#product-search')
+        let searchFilter = searchInput.value.toUpperCase()
+        let tableRow = document.getElementsByTagName('tr')
+        
+        for (let i = 0; i < tableRow.length; i++) {
+            rowCell = tableRow[i].getElementsByTagName('td')[0]
+            cellText = rowCell.textContent || rowCell.innerText;
+            if (cellText.toUpperCase().indexOf(searchFilter) > -1) {
+                if(tableRow[i].classList.contains('hide')) tableRow[i].classList.remove('hide')
+            } else tableRow[i].classList.add('hide')
+        }
+    }
+
+    $(document).ready(() => $('table tr:even').css('background-color','#eee'))
 }
 
 function footerSection() {
