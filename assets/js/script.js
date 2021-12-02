@@ -1,15 +1,15 @@
 // =============================================================== PAGE MANAGEMENT ============================================================================
 let pageLink = window.location.pathname
 
-if(pageLink == '/index.html' || pageLink == '/'){
+if(pageLink == '/crossfader/index.html' || pageLink == '/crossfader/'){
     homePage()
 }
 
-if(pageLink == '/support.html'){
+if(pageLink == '/crossfader/support.html'){
     contactValidation()
 }
 
-if(pageLink == '/products.html'){
+if(pageLink == '/crossfader/products.html'){
     productPage()
 }
 // ============================================================= END OF PAGE MANAGEMENT ========================================================================
