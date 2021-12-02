@@ -527,8 +527,8 @@ function contactValidation() {
         let selectedProfession = professionSelect.options[professionSelect.selectedIndex].innerText
         let selectedQuestion = questionSelect.options[questionSelect.selectedIndex].innerText
         if(checkBtn()) {
-            if(newsletter.checked) alert(`Thank you best ${selectedProfession} ${nameField.value.split(' ')[0]} for contacting us about ${selectedQuestion}, we will send you the answer on ${mailField.value} as soon as possible! P.S. We won't spam your mail with our newsletter! :)`)
-            else alert(`Thank you best ${selectedProfession} ${nameField.value.split(' ')[0]} for contacting us about ${selectedQuestion}, we will send you the answer on ${mailField.value} as soon as possible! P.S. Why didn't you subscribe to newsletter :(`)
+            if(newsletter.checked) alert(`Thank you ${selectedProfession} ${nameField.value.split(' ')[0]} for contacting us about ${selectedQuestion} topic, we will send you the answer on ${mailField.value} as soon as possible! P.S. We won't spam your mail with our newsletter!? :)`)
+            else alert(`Thank you ${selectedProfession} ${nameField.value.split(' ')[0]} for contacting us about ${selectedQuestion} topic, we will send you the answer on ${mailField.value} as soon as possible! P.S. Why didn't you subscribe to newsletter? :(`)
             event.preventDefault()
         } else {
             alert('Looks like you forgot something to fill!')
