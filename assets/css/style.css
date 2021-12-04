@@ -9,6 +9,10 @@
   cursor: pointer;
 }
 
+:root {
+  --sliderHeight: 85vh;
+}
+
 html {
   overflow-x: hidden;
   scroll-behavior: smooth;
@@ -122,17 +126,30 @@ html body main {
   margin: 0 auto;
 }
 
-html body main .slider {
-  width: 100% !important;
-  height: 85vh !important;
+html body main #slider {
+  width: 100vw;
+  height: var(--sliderHeight);
+  overflow: hidden;
 }
 
-html body main .slider .slides {
-  height: 85vh !important;
+html body main #slider .slides {
+  display: block;
+  width: 600vw;
+  height: var(--sliderHeight);
+  margin: 0;
+  padding: 0;
 }
 
-html body main .slider .slides .caption {
-  margin-top: 8rem !important;
+html body main #slider .slides .slide {
+  float: left;
+  list-style-type: none;
+  width: 100vw;
+  height: var(--sliderHeight);
+}
+
+html body main #slider .slides .slide img {
+  width: 100vw;
+  height: var(--sliderHeight);
 }
 
 html body main .cross-section {

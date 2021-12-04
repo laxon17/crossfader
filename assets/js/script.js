@@ -1,7 +1,7 @@
 // =============================================================== PAGE MANAGEMENT ============================================================================
 let pageLink = window.location.pathname
 
-if(pageLink == '/crossfader/index.html' || pageLink == '/crossfader/'){
+if(pageLink == '/index.html' || pageLink == '/'){
     homePage()
 }
 
@@ -73,58 +73,71 @@ function navBars() {
 }
 
 function homePage() {
-        
-    // CAROUSEL
 
-    const sliderContainer = document.querySelector('.slides')
+    // CAROUSEL
     const imageSources = [
         'vinyl.jpg',
+        'dj-cdj.jpg',
+        'dj-tutor.jpg',
         'pioneer-xdj.jpg',
         'pioneer-ddj1000.jpg',
         'dj-mixer.jpg'
     ]
     const imageAlternateNames = [
         'Old Vinyl',
+        'DJ on CDJs',
+        'Tutorials',
         'Pioneer XDJ-RR',
         'Pioneer DDJ-1000',
         '16 chan DJ Mixer'
     ]
-    const sliderHeading = [
-        'Welcome to Crossfader!',
-        'Learn how to DJ!',
-        'Everything you need is here!',
-        'BeatGear MX-16'
-    ]
+
+    const sliderList = document.getElementsByClassName('slides')[0]
 
     for(let i = 0; i < imageSources.length; i++) 
         {
             let sliderItem = document.createElement('li')
-            let sliderImage = document.createElement('img')
-            let captionHolder = document.createElement('div')
-            let captionHeading = document.createElement('h1')
-                captionHolder.classList.add('caption')
-                if(i != 1)
-                    {
-                        captionHolder.classList.add('center-align')
-                    }
-                else 
-                    {
-                        captionHolder.classList.add('left-align')
-                    }
-                sliderImage.setAttribute('src', `assets/img/${imageSources[i]}`)
-                sliderImage.setAttribute('alt', imageAlternateNames[i])
-                captionHeading.innerText = sliderHeading[i]
-                if(i == 0)
-                    {
-                        captionHolder.append(captionHeading)
-                    }
-                else 
-                    {
-                        captionHolder.append(captionHeading)
-                    }
-                sliderItem.append(sliderImage, captionHolder)
-                sliderContainer.append(sliderItem)
+            let sliderBackground = document.createElement('img')
+                sliderItem.setAttribute('class', 'slide')
+                sliderBackground.setAttribute('src', `assets/img/${imageSources[i]}`)
+                sliderBackground.setAttribute('alt', imageAlternateNames[i])
+                sliderItem.append(sliderBackground)
+                sliderList.append(sliderItem)
         }
+
+    // SLIDER JQUERY
+    $(() => {
+        let width = 100;
+        let animationSpeed = 3000;
+        let pause = 6000;
+        let currentSlide = 1;
+
+        let $slider = $('#slider')
+        let $slideContainer = $slider.find('.slides')
+        let $slides = $slideContainer.find('.slide')
+        var interval
+
+        function startSlider() {
+            interval = setInterval(() => {
+                $slideContainer.animate({'margin-left': '-=' + width + 'vw'}, animationSpeed, () => {
+                    currentSlide++
+                    if(currentSlide === $slides.length) {
+                        currentSlide = 1
+                        $slideContainer.css('margin-left', 0)
+                    }   
+                })
+            }, pause)
+        }
+        
+        function stopSlider() {
+            clearInterval(interval)
+        }
+
+        $slider.on('mouseenter', stopSlider).on('mouseleave', startSlider)
+
+        startSlider()
+    })
+    // END OF SLIDER JQUERY
     // END OF CAROUSEL
 
     // INFO CARDS
