@@ -1,7 +1,7 @@
 // =============================================================== PAGE MANAGEMENT ============================================================================
 let pageLink = window.location.pathname
 
-if(pageLink == '/index.html' || pageLink == '/'){
+if(pageLink == '/crossfader/index.html' || pageLink == '/crossfader/'){
     homePage()
 }
 
@@ -228,8 +228,6 @@ function homePage() {
     // PRODUCT GALERY
 
     const productChooser = document.getElementById('product-chooser')
-    var chooserCounter
-    var productRow
 
     const tooltips = [
         'DJ CONTROLLERS',
