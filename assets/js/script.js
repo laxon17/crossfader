@@ -121,7 +121,7 @@ function homePage() {
             interval = setInterval(() => {
                 $slideContainer.animate({'margin-left': '-=' + width + 'vw'}, animationSpeed, () => {
                     currentSlide++
-                    if(currentSlide === $slides.length) {
+                    if(currentSlide === $slides.length ) {
                         currentSlide = 1
                         $slideContainer.css('margin-left', 0)
                     }   
@@ -461,9 +461,11 @@ function contactValidation() {
     const newsletter = document.querySelector('#newsletter')
     const inputFields = Array.from(fields)
 
+
     // CHECK FUNCTIONS
     const checkSelects = () => {
         let selectedQuestion = questionSelect.options[questionSelect.selectedIndex].value
+        console.log(selectedQuestion)
         let selectedProfession = professionSelect.options[professionSelect.selectedIndex].value
             if(selectedQuestion != 0 && selectedProfession != 0) return 1
             return 0        
@@ -486,26 +488,14 @@ function contactValidation() {
         let nameField = document.querySelector('#full_name') 
         let nameExpression = /^[A-ZČĆŽĐŠ][a-zćčžđš]{1,14}\s([A-ZČĆŽĐŠ][a-zćčžđš]{1,14})?\s?[A-ZČĆŽŠĐ][a-zćčžđš]{1,19}$/
             nameFieldValue = nameField.value
-            if(nameExpression.test(nameFieldValue)) {
-                fieldValid(nameField)
-                return 1 // Name recognized, return 1
-            } else {
-                fieldInvalid(nameField, 'Check your name format!')
-                return 0 // Name is not valid, return 0
-            }
+            return checkRegEx(nameExpression, nameFieldValue, nameField)
     }
 
     const checkMail = () => {
         let mailField = document.querySelector('#mail')
         let mailExpression = /^[a-zA-Z0-9]([a-z]|[0-9])+\.?-?_?([a-z]|[0-9])*\.?([a-z]|[0-9])*\@[a-z]{3,}\.([a-z]{2,4}\.)?([a-z]{2,4})$/g
             mailFieldValue = mailField.value 
-            if(mailExpression.test(String(mailFieldValue))) {
-                fieldValid(mailField)
-                return 1 // Mail is valid, return 1
-            } else {
-                fieldInvalid(mailField, 'E-mail is not in a good format!')
-                return 0 // Mail isn't as expected, return 0
-            }   
+            return checkRegEx(mailExpression, mailFieldValue, mailField) 
     }
 
     const checkBtn = () => {
@@ -540,24 +530,29 @@ function contactValidation() {
 
     professionSelect.addEventListener('change', checkSelects)
 
-    contactForm.addEventListener('submit', (event) => {
+    submitBtn.addEventListener('click', (event) => {
         let selectedProfession = professionSelect.options[professionSelect.selectedIndex].innerText
         let selectedQuestion = questionSelect.options[questionSelect.selectedIndex].innerText
         if(checkBtn()) {
+            event.preventDefault()
             if(newsletter.checked) alert(`Thank you ${selectedProfession} ${nameField.value.split(' ')[0]} for contacting us about ${selectedQuestion} topic, we will send you the answer on ${mailField.value} as soon as possible! P.S. We won't spam your mail with our newsletter!? :)`)
             else alert(`Thank you ${selectedProfession} ${nameField.value.split(' ')[0]} for contacting us about ${selectedQuestion} topic, we will send you the answer on ${mailField.value} as soon as possible! P.S. Why didn't you subscribe to newsletter? :(`)
-            event.preventDefault()
+            inputFields.forEach(inputField => {
+                inputField.value = ''
+                inputField.nextElementSibling.innerText = ''
+            })
         } else {
-            alert('Looks like you forgot something to fill!')
+            alert('Looks like you forgot something to fill or select!')
+            event.preventDefault()
             checkName()
             checkMail()
             checkTextField()
-            event.preventDefault()
         }
     })
     // END OF EVENT LISTENERS
 
     // FUNCTIONS
+
     function fieldValid(field) {
         if(field.classList.contains('fail')) {
             field.classList.remove('fail')
@@ -583,6 +578,16 @@ function contactValidation() {
         }
         field.nextElementSibling.innerText = `${text}`
         field.nextElementSibling.classList.add('red-text')
+    }
+
+    const checkRegEx = (expression, fieldValue, field) => {
+        if(expression.test(String(fieldValue))) {
+            fieldValid(field)
+            return 1 // Is valid, return 1
+        } else {
+            fieldInvalid(field, `${field.name} is not in a good format!`)
+            return 0 // It isn't as expected, return 0
+        } 
     }
     // END OF FUCNTIONS
 
