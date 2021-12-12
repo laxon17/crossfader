@@ -2,25 +2,25 @@
     <urlset xmlns="http://wwww.sitemaps.org/schemas/sitemap/0.9">
         <url>
             <loc>https://laxon17.github.io/crossfader/community.html</loc>
-            <lastmod>2021-12-08</lastmod>
+            <lastmod>2021-12-12</lastmod>
             <changefreq>daily</changefreq>
             <priority>1</priority>
         </url>
         <url>
             <loc>https://laxon17.github.io/crossfader/products.html</loc>
-            <lastmod>2021-12-08</lastmod>
+            <lastmod>2021-12-10</lastmod>
             <changefreq>weekly</changefreq>
             <priority>0.85</priority>
         </url>
         <url>
             <loc>https://laxon17.github.io/crossfader/index.html</loc>
-            <lastmod>2021-12-07</lastmod>
+            <lastmod>2021-12-11</lastmod>
             <changefreq>weekly</changefreq>
             <priority>0.80</priority>
         </url>
         <url>
             <loc>https://laxon17.github.io/crossfader/prices.html</loc>
-            <lastmod>2021-12-08</lastmod>
+            <lastmod>2021-12-12</lastmod>
             <changefreq>weekly</changefreq>
             <priority>0.75</priority>
         </url>
