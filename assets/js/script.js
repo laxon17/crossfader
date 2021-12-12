@@ -541,6 +541,9 @@ function contactValidation() {
                 inputField.value = ''
                 inputField.nextElementSibling.innerText = ''
             })
+            professionSelect.selectedIndex = 0
+            questionSelect.selectedIndex = 0
+            checkBtn()
         } else {
             alert('Looks like you forgot something to fill or select!')
             event.preventDefault()
