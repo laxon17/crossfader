@@ -535,7 +535,7 @@ function contactValidation() {
         let selectedQuestion = questionSelect.options[questionSelect.selectedIndex].innerText
         if(checkBtn()) {
             event.preventDefault()
-            if(newsletter.checked) alert(`Thank you ${selectedProfession} ${nameField.value.split(' ')[0]} for contacting us about ${selectedQuestion} topic, we will send you the answer on ${mailField.value} as soon as possible! P.S. We won't spam your mail with our newsletter!? :)`)
+            if(newsletter.checked) alert(`Thank you ${selectedProfession} ${nameField.value.split(' ')[0]} for contacting us about ${selectedQuestion} topic, we will send you the answer on ${mailField.value} as soon as possible! P.S. We won't spam your mail with our newsletter! :)`)
             else alert(`Thank you ${selectedProfession} ${nameField.value.split(' ')[0]} for contacting us about ${selectedQuestion} topic, we will send you the answer on ${mailField.value} as soon as possible! P.S. Why didn't you subscribe to newsletter? :(`)
             inputFields.forEach(inputField => {
                 inputField.value = ''
@@ -585,7 +585,7 @@ function contactValidation() {
             fieldValid(field)
             return 1 // Is valid, return 1
         } else {
-            fieldInvalid(field, `${field.name} is not in a good format!`)
+            fieldInvalid(field, `${field.name} is not as expected!`)
             return 0 // It isn't as expected, return 0
         } 
     }
