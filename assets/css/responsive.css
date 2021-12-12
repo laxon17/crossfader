@@ -1,4 +1,7 @@
 @media screen and (max-width: 600px) {
+  :root {
+    --sliderHeight: 45vh;
+  }
   #logo-container {
     margin-top: .2rem;  
     padding-bottom: 1rem;
